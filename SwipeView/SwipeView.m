@@ -903,6 +903,7 @@
 
 - (void)updateItemSizeAndCount
 {
+    if (_dataSource && _dataSource != nil && ![_dataSource isKindOfClass:[NSNull class]] ) {
     //get number of items
     _numberOfItems = [_dataSource numberOfItemsInSwipeView:self];
     
@@ -921,6 +922,7 @@
     //prevent crashes
     if (_itemSize.width < 0.0001) _itemSize.width = 1;
     if (_itemSize.height < 0.0001) _itemSize.height = 1;
+    }
 }
 
 - (void)loadUnloadViews
